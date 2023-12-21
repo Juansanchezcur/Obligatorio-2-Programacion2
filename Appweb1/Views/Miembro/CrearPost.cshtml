@@ -1,0 +1,37 @@
+﻿@using Dominio
+@model Post
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@ViewBag.error
+
+<h2>Crear Post</h2>
+@if (ViewBag.Bloqueado)
+{
+    <p>El usuario no tiene permitido crear Posts porque fué bloqueado por un Administrador</p>
+}
+else
+{
+    <form action="/Miembro/CrearPost" method="post">
+
+        <input type="text" name="titulo" placeholder="Titulo" required value="@Model.Titulo"></input>
+        <br>
+        <div class="form-floating">
+            <input type="text" placeholder="Contenido" name="Contenido" style=width:600px; margin: 30px 0" required value="@Model.Contenido"></input>
+        </div>
+        <br>
+        <input type="text" name="Imagen" placeholder="Imagen formato .jpg o .png" required value="@Model.Imagen"></input>
+        <br>
+        <select name="Privacidad">
+            @foreach (string privacidad in ViewBag.Privacidades)
+            {
+               <option value="@privacidad"> @privacidad </option>
+            }
+
+        </select>
+        <button type="submit">Publicar Post </button>
+    </form>
+}

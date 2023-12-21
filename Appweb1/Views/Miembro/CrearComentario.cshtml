@@ -1,0 +1,21 @@
+﻿@using Dominio
+@model Comentario
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@ViewBag.error
+<h2>Comentario:</h2>
+<form action="/Miembro/CrearComentario" method="post">
+    <h4 style="margin-top:70px">Comentar:</h4>
+    <input type="text" name="idPost" hidden value="@ViewBag.idPost" />
+    <input type="text" name="titulo" placeholder="Titulo" value="@Model.Titulo"></input>
+    <br>
+    <div class="form-floating">
+        <input type="text" placeholder="Contenido" name="contenido" style="width:400px; margin: 30px 0" value="@Model.Contenido"></input>
+    </div>
+    <br>
+    <button type="submit">Comentar</button>
+</form>

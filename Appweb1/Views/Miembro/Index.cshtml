@@ -1,0 +1,60 @@
+﻿@using Dominio
+@model Post
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@ViewBag.error
+
+<h2 style="margin-bottom:100px; font-size:32px; margin-top:70px" class="text-center">Posts</h2>
+
+@foreach (Post post in ViewBag.Posts)
+{
+    <div style="margin-bottom:250px; padding:50px " class="border border-1 container shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+        <h3 style=" font-size:25px; margin-bottom:10px">@post.Titulo</h3>
+        <p>Autor: @post.Autor.Nombre</p>
+        <p>Fecha de publicación: @post.Fecha.ToShortDateString() </p>
+        <p style="font-weight:600">@post.Contenido</p>
+        <p>Likes: @post.CantidadLikes()</p>
+        <a href="/Miembro/DarLike?id=@post.Id" class="btn btn-success">Dar Like</a>
+        <p>Dislikes: @post.CantidadDislikes()</p>
+        <a href="/Miembro/DarDislike?id=@post.Id" class="btn btn-danger">Dar Dislike</a>
+        <p>Valor de aceptación: @post.calcularVA()</p>
+        <hr>
+
+        <h4 style="margin-top:70px" class="text-center">Comentarios</h4>
+        @if (post.Comentarios.Count() != 0)
+        {
+            @foreach (Comentario comentario in post.Comentarios)
+            {
+                <h5 style="margin-top:50px; margin-bottom:25px">@comentario.Titulo</h5>
+                <p> Autor: @comentario.Autor.Nombre</p>
+                <p style="font-weight:600">@comentario.Contenido</p>
+                <p>Likes: @comentario.CantidadLikes()</p>
+                <a href="/Miembro/DarLike?id=@comentario.Id" class="btn btn-success">Dar Like</a>
+                <p>Dislikes: @comentario.CantidadDislikes()</p>
+               <a href="/Miembro/DarDislike?id=@comentario.Id" class="btn btn-danger">Dar Dislike</a>
+                <p>Valor de aceptación: @comentario.calcularVA()</p>
+                <hr>
+            }   
+        }
+        else
+        {
+            <p>Este post todavia no tiene comentarios</p>
+        }
+
+        @if (ViewBag.Bloqueado == true)
+        {
+            <p>Este miembro no puede comentar ya que se encuentra bloqueado por un administrador</p>
+        }
+        else
+        {
+
+            <a href="/Miembro/CrearComentario?idPost=@post.Id" class="btn btn-outline-primary">Comentar</a>
+        }
+    </div>
+}
+

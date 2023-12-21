@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34009.444
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppConsola", "AppConsola\AppConsola.csproj", "{F79B2007-D0CA-4B87-9870-887919CF846C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dominio", "Dominio\Dominio.csproj", "{698852F7-9C05-4370-B68B-DE172927FD6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appweb1", "Appweb1\Appweb1.csproj", "{8333B316-1DF2-4586-A06F-1518B5D4B6D9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F79B2007-D0CA-4B87-9870-887919CF846C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F79B2007-D0CA-4B87-9870-887919CF846C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F79B2007-D0CA-4B87-9870-887919CF846C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F79B2007-D0CA-4B87-9870-887919CF846C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{698852F7-9C05-4370-B68B-DE172927FD6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{698852F7-9C05-4370-B68B-DE172927FD6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{698852F7-9C05-4370-B68B-DE172927FD6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{698852F7-9C05-4370-B68B-DE172927FD6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8333B316-1DF2-4586-A06F-1518B5D4B6D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8333B316-1DF2-4586-A06F-1518B5D4B6D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8333B316-1DF2-4586-A06F-1518B5D4B6D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8333B316-1DF2-4586-A06F-1518B5D4B6D9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1105A3E3-EEDD-487B-8F83-0E74B0F7D0B9}
+	EndGlobalSection
+EndGlobal

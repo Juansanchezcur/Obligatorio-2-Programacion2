@@ -1,0 +1,48 @@
+﻿@using Dominio
+@model Post
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@ViewBag.error
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Título</th>
+            <th scope="col">Contenido</th>
+            <th scope="col">Autor</th>
+            <th scope="col">Privacidad</th>
+            <th scope="col">Imagen</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Censurado</th>
+            <th scope="col">Censurar Post</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Post post in ViewBag.Posts)
+        {
+            <tr>
+                <th scope="row">@post.Id</th>
+                <td scope="row">@post.Titulo</td>
+                <td>@post.Contenido</td>
+                <td>@post.Autor.Nombre</td>
+                <td>@post.Privacidad</td>
+                <td>@post.Imagen</td>
+                <td>@post.Fecha.ToShortDateString()</td>
+                 <td>@post.Censurado</td>
+
+                <td>
+                    @if (post.Censurado == false)
+                    {
+                        <a class="btn btn-danger" href="/Administrador/CensurarPost?id=@post.Id">Censurar</a>
+                    }
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

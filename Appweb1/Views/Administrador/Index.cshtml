@@ -1,0 +1,43 @@
+﻿@using Dominio
+@model Miembro
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@ViewBag.error
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Email</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Fec.Nacimiento</th>
+            <th scope="col">Amigos</th>
+            <th scope="col">Bloqueado</th>
+            <th scope="col">Bloquear Miembro</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Miembro miembro in ViewBag.Miembros)
+        {
+            <tr>
+                <th scope="row">@miembro.Email</th>
+                <td>@miembro.Nombre</td>
+                <td>@miembro.Apellido</td>
+                <td>@miembro.FechaNacimiento.ToShortDateString()</td>
+                <td>@miembro.Amigos.Count</td>
+                <td>@miembro.Bloqueado</td>
+
+                <td> @if (miembro.Bloqueado == false)
+                    {
+                        <a class="btn btn-danger" href="/Administrador/BloquearMiembro?email=@miembro.Email">Bloquear</a>
+                    }
+                </td>
+               
+            </tr>
+        }
+    </tbody>
+</table>

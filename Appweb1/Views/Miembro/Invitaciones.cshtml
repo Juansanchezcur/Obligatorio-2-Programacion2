@@ -1,0 +1,44 @@
+﻿@using Dominio
+@model Invitacion
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@ViewBag.error
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Solicitante</th>
+            <th scope="col">Aceptar Solicitud</th>
+            <th scope="col">Rechazar Solicitud</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        @if(ViewBag.InvitacionesPendientes.Count==0){
+        <tr>
+            <td>No tienes solicitudes pendientes
+            </td>
+                <td></td>
+                <td></td>
+        </tr>
+            }
+        else{
+
+        @foreach (Invitacion invitacion in ViewBag.InvitacionesPendientes)
+        {
+            <tr>
+                    <th scope="row">@invitacion.MiembroSolicitante.Nombre @invitacion.MiembroSolicitante.Apellido</th>
+                <td> 
+                   <a class="link-secondary" href="/Miembro/AceptarInvitacion?id=@invitacion.Id">Aceptar</a>
+                </td>
+                <td>
+                    <a class="link-secondary" href="/Miembro/RechazarInvitacion?id=@invitacion.Id">Rechazar</a>
+                </td>
+            </tr>
+        }}
+    </tbody>
+</table>

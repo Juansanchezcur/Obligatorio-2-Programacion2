@@ -1,0 +1,20 @@
+﻿@using Dominio
+@model Miembro
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@ViewBag.Error
+
+<form action="/Registro/Index" method="post">
+    <h1>Registro:</h1>
+    <input type="text" name="Nombre" placeholder="Ingrese su nombre" value="@Model.Nombre"/>
+    <input type="text" name="Apellido" placeholder="Ingrese su apellido" value="@Model.Apellido" />
+    <input type="email" name="Email" placeholder="Ingrese su email" value="@Model.Email" />
+    <input type="date" placeholder="Ingrese fecha nacimiento" name="FechaNacimiento" value="@Model.FechaNacimiento.ToString("dd-mm-yyyy")" />
+    <input type="password" name="Contrasena" placeholder="Ingrese la contraseña" />
+    <button type="submit">Registrarse</button>
+</form>
+<br>
+<button> <a style="text-decoration: none; color: black" href='/Login/Index'>Volver al Login</a> </button>

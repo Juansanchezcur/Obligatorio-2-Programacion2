@@ -1,0 +1,35 @@
+﻿@using Dominio
+@model Invitacion
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+
+
+<h2>Agregar Amigo</h2>
+
+@ViewBag.error
+
+@if (ViewBag.PosiblesAmigos != null)
+{
+    <p>Seleccione a quién quiere agregar como amigo:</p>
+    <form action="/Miembro/Amigos" method="post">
+        <select name="email">
+            <option value="" disabled selected>Selecciona una opción</option>
+
+            @foreach (Miembro miembro in ViewBag.PosiblesAmigos)
+            {
+                <option value="@miembro.Email">@miembro.Nombre @miembro.Apellido</option>
+            }
+
+
+        </select>
+        <button type="submit">Agregar</button>
+    </form>
+}
+<br>
+<h2>Solicitudes  Pendientes</h2>
+<a class="btn btn-outline-info" href="/Miembro/Invitaciones">Ver solicitudes</a>

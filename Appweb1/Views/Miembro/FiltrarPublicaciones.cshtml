@@ -1,0 +1,40 @@
+﻿@using Dominio
+
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@ViewBag.Error
+
+<h2>Filtrar publicaciones por texto y valor de aceptación</h2>
+<form action="/Miembro/FiltrarPublicaciones" method="post">
+
+    <input type="text" name="texto" placeholder="Texto a buscar" required></input>
+    <br>
+    <br>
+    <input type="number" name="ValorAceptacion" placeholder="Ingresa un valor de aceptación mínimo" required styles="width:auto"></input>
+    <br>
+ 
+    <button type="submit" style="margin-bottom:20px">Filtrar </button>
+</form>
+@if (ViewBag.PublicacionesFiltradas != null)
+{
+    @foreach (Publicacion publicacion in ViewBag.PublicacionesFiltradas)
+    {
+          <div style="margin-bottom:250px; padding:50px " class="border border-1 container shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+            <h3 style=" font-size:25px; margin-bottom:10px">@publicacion.Titulo</h3>
+            <p>Tipo: @publicacion.GetType().Name </p>
+            <p>Autor: @publicacion.Autor.Nombre</p>
+            <p>Fecha de publicación: @publicacion.Fecha.ToShortDateString() </p>
+            <p style="font-weight:600">@publicacion.Contenido</p>
+            <p>Likes: @publicacion.CantidadLikes()</p>
+            <button> <a href="/Miembro/DarLike?id=@publicacion.Id" style="text-decoration: none; color: black">Dar Like</a> </button>
+            <p>Dislikes: @publicacion.CantidadDislikes()</p>
+            <button><a href="/Miembro/DarDislike?id=@publicacion.Id" style="text-decoration: none; color: black">Dar Dislike</a></button>
+            <p>Valor de aceptación: @publicacion.calcularVA()</p>
+            </div>
+            }
+}
